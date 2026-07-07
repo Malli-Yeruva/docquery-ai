@@ -34,7 +34,8 @@ def render_sidebar() -> tuple[str, dict[str, str]]:
         st.markdown("### Backend connection")
 
         # Load defaults
-        default_url = "http://localhost:8000"
+        import os
+        default_url = os.getenv("BACKEND_URL", "http://localhost:8000")
         default_key = "your-secret-api-key-change-me"
 
         backend_url = st.text_input(
