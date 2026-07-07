@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Install dependencies into user space to avoid root permission conflicts
 COPY pyproject.toml .
+# Pre-install CPU-only torch to prevent downloading huge CUDA libraries
+RUN pip install --no-cache-dir --user torch --index-url https://download.pytorch.org/whl/cpu
 RUN pip install --no-cache-dir --user -e ".[frontend]"
 
 # Install greenlet explicitly in user space

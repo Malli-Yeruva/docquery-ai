@@ -1,0 +1,17 @@
+.venv/
+venv/
+env/
+data/
+.git/
+.github/
+.pytest_cache/
+tests/
+.idea/
+.vscode/
+*.swp
+*.log
+__pycache__/
+*.egg-info/
+dist/
+build/
+.DS_Store
