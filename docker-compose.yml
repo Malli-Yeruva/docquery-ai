@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   # ── Backend FastAPI API Server ──────────────────────────────────────
   backend:
@@ -18,14 +16,12 @@ services:
       - APP_HOST=0.0.0.0
       - APP_PORT=8000
       - API_KEY=your-secret-api-key-change-me
-      - OLLAMA_BASE_URL=http://ollama:11434
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
       - OLLAMA_MODEL=gemma3:4b
       - SQLITE_URL=sqlite+aiosqlite:///./data/sqlite/docquery.db
       - CHROMA_PERSIST_DIR=/app/data/chroma_db
       - LOG_LEVEL=INFO
       - LOG_FORMAT=json
-    depends_on:
-      - ollama
 
   # ── Streamlit UI Frontend ───────────────────────────────────────────
   frontend:
@@ -42,14 +38,3 @@ services:
     depends_on:
       - backend
 
-  # ── Local Ollama Service ────────────────────────────────────────────
-  ollama:
-    image: ollama/ollama:latest
-    container_name: docquery_ollama
-    ports:
-      - "11434:11434"
-    volumes:
-      - ollama_storage:/root/.ollama
-
-volumes:
-  ollama_storage:
