@@ -1,0 +1,39 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ===== Virtual Environment =====
+.venv/
+venv/
+env/
+
+# ===== Runtime Data (generated at runtime, not in VCS) =====
+data/uploads/
+data/chroma_db/
+data/sqlite/
+
+# ===== Environment Variables (contains secrets) =====
+.env
+
+# ===== IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== Testing =====
+.coverage
+htmlcov/
+.pytest_cache/
+
+# ===== Misc =====
+*.log
